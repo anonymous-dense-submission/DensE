@@ -377,7 +377,7 @@ def main(args):
                 
             if args.do_valid and (step+1) % args.valid_steps == 0:
                 logging.info('Evaluating on Valid Dataset...')
-                metrics = kge_model.test_step(kge_model, _valid_triples, all_true_triples, args)
+                metrics = kge_model.test_step(kge_model, _valid_triples, _all_true_triples, args)
                 log_metrics('Valid', step, metrics)
                 
                 if metrics['MRR'] > max_mrr:

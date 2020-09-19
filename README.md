@@ -17,9 +17,9 @@ pip install -r requirements.txt
 To train the model(s) in the paper, run this command:
 
 ```train
-wn18: bash run_DensE.sh train DensE wn18 <gpu-id> <dir> 512 1024 200 12.0 0.3 0.1 18000 8 0 -me -mr -adv
-wn18rr: bash run_DensE.sh train DensE wn18rr <gpu-id> <dir> 512 512 200 6.0 0.5 0.1 15000 8 0 -me -mr -adv
-FB15k-237: bash run_DensE.sh train DensE FB15k-237 <gpu-id> <dir> 1024 256 500 9.0 1.0 0.1 27000 16 0 -me -mr -adv 
+wn18: bash run_DensE.sh train DensE wn18 <gpu-id> <dir> 512 1024 200 12.0 0.3 0.1 20000 8 0 -me -mr -adv
+wn18rr: bash run_DensE.sh train DensE wn18rr <gpu-id> <dir> 512 512 300 6.0 0.5 0.1 25000 8 0 -me -mr -adv
+FB15k-237: bash run_DensE.sh train DensE FB15k-237 <gpu-id> <dir> 1024 256 800 9.0 1.0 0.1 30000 16 0 -me -mr -adv 
 YAGO3-10: bash run_DensE.sh train DensE YAGO3-10 <gpu-id> <dir> 1024 512 200 24.0 1.0 0.1 33000 16 0 -me -mr -adv
 ```
 ## Evaluation
@@ -27,9 +27,9 @@ YAGO3-10: bash run_DensE.sh train DensE YAGO3-10 <gpu-id> <dir> 1024 512 200 24.
 To evaluate my models, run:
 
 ```eval
-wn18: bash run_DensE.sh test DensE wn18 <gpu-id> <dir> 512 1024 200 12.0 0.3 0.1 18000 8 0 -me -mr -adv
-wn18rr: bash run_DensE.sh test DensE wn18rr <gpu-id> <dir> 512 512 200 6.0 0.5 0.1 15000 8 0 -me -mr -adv
-FB15k-237: bash run_DensE.sh test DensE FB15k-237 <gpu-id> <dir> 1024 256 500 9.0 1.0 0.1 27000 16 0 -me -mr -adv
+wn18: bash run_DensE.sh test DensE wn18 <gpu-id> <dir> 512 1024 200 12.0 0.3 0.1 20000 8 0 -me -mr -adv
+wn18rr: bash run_DensE.sh test DensE wn18rr <gpu-id> <dir> 512 512 300 6.0 0.5 0.1 25000 8 0 -me -mr -adv
+FB15k-237: bash run_DensE.sh test DensE FB15k-237 <gpu-id> <dir> 1024 256 800 9.0 1.0 0.1 30000 16 0 -me -mr -adv
 YAGO3-10: bash run_DensE.sh test DensE YAGO3-10 <gpu-id> <dir> 1024 512 200 24.0 1.0 0.1 33000 16 0 -me -mr -adv
 ```
 
@@ -53,7 +53,7 @@ WN18RR
 | ---------- |----|-----|-----|-----|-----|
 |   RotatE   |3340|0.476|0.428|0.492|0.571|
 |   QuatE    |3472|0.481|0.436|0.500|0.564|
-|   DensE    |3052|0.491|0.443|0.508|0.579|
+|   DensE    |2935|0.492|0.445|0.508|0.586|
 
 FB15k-237
 
@@ -61,7 +61,7 @@ FB15k-237
 | ---------- |----|-----|-----|-----|-----|
 |   RotatE	 |177	|0.338|0.241|0.375|0.533|
 |   QuatE    |176	|0.311|0.221|0.342|0.495|
-|   DensE    |169	|0.349|0.256|0.384|0.535|
+|   DensE    |161	|0.351|0.256|0.386|0.544|
 
 
 YAGO3-10

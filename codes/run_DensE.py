@@ -349,6 +349,7 @@ def main(args):
         training_logs = []
         
         max_mrr = 0.
+        mrr_lst = []
         
         #Training Loop
         for step in range(init_step, args.max_steps):
@@ -377,8 +378,11 @@ def main(args):
                 
             if args.do_valid and (step+1) % args.valid_steps == 0:
                 logging.info('Evaluating on Valid Dataset...')
-                metrics = kge_model.test_step(kge_model, _valid_triples, _all_true_triples, args)
+                metrics = kge_model.test_step(kge_model, valid_triples[1], reciprocal_all_true_triples, args)
                 log_metrics('Valid', step, metrics)
+                
+                mrr_lst.append(metrics['MRR'])
+                print(mrr_lst)
                 
                 if metrics['MRR'] > max_mrr:
                     logging.info('Better Performance on Valid, save model')
@@ -400,12 +404,13 @@ def main(args):
         
     if args.do_valid:
         logging.info('Evaluating on Valid Dataset...')
-        metrics = kge_model.test_step(kge_model, _valid_triples, _all_true_triples, args)
+        metrics = kge_model.test_step(kge_model, valid_triples[1], reciprocal_all_true_triples, args)
         log_metrics('Valid', step, metrics)
     
     if args.do_test:
         logging.info('Evaluating on Test Dataset...')
-        metrics = kge_model.test_step(kge_model, _test_triples, _all_true_triples, args)
+#         metrics = kge_model.test_step(kge_model, _test_triples, _all_true_triples, args)
+        metrics = kge_model.test_step(kge_model, test_triples[1], reciprocal_all_true_triples, args)
         log_metrics('Test', step, metrics)
     
     if args.evaluate_train:

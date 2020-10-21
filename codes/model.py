@@ -118,6 +118,33 @@ class DensEModel(nn.Module):
         self.entity_y.weight.data = e_y.type_as(self.entity_y.weight.data)
         self.entity_z.weight.data = e_z.type_as(self.entity_z.weight.data)
         
+#     def relation_init(self, n_entries, features, criterion='he'):
+#         fan_in = features
+#         fan_out = features
+        
+#         if criterion == 'glorot':
+#             s = 1. / np.sqrt(2 * (fan_in + fan_out))
+#         elif criterion == 'he':
+#             s = 1. / np.sqrt(2 * fan_in)
+#         else:
+#             raise ValueError('Invalid criterion: ', criterion)
+            
+#         print('INFO: init rel_mod is: ', s)
+
+#         kernel_shape = (n_entries, features)
+            
+#         rel_mod = np.random.uniform(low=-s, high=s, size=kernel_shape)
+#         rotate_phase = np.random.uniform(low=-2*np.pi, high=2*np.pi, size=kernel_shape)
+#         theta = np.random.uniform(low=0, high=np.pi, size=kernel_shape)
+#         phi = np.random.uniform(low=0, high=2*np.pi, size=kernel_shape)
+        
+#         rel_w = rel_mod * np.cos(rotate_phase/2)
+#         rel_x = rel_mod * np.sin(rotate_phase/2) * np.sin(theta) * np.cos(phi)
+#         rel_y = rel_mod * np.sin(rotate_phase/2) * np.sin(theta) * np.sin(phi)
+#         rel_z = rel_mod * np.sin(rotate_phase/2) * np.cos(theta)
+
+#         return rel_w, rel_x, rel_y, rel_z
+
     def relation_init(self, n_entries, features, criterion='he'):
         fan_in = features
         fan_out = features
@@ -128,23 +155,18 @@ class DensEModel(nn.Module):
             s = 1. / np.sqrt(2 * fan_in)
         else:
             raise ValueError('Invalid criterion: ', criterion)
-            
+        
         print('INFO: init rel_mod is: ', s)
 
         kernel_shape = (n_entries, features)
-            
-        rel_mod = np.random.uniform(low=-s, high=s, size=kernel_shape)
-        rotate_phase = np.random.uniform(low=-2*np.pi, high=2*np.pi, size=kernel_shape)
-        theta = np.random.uniform(low=0, high=np.pi, size=kernel_shape)
-        phi = np.random.uniform(low=0, high=2*np.pi, size=kernel_shape)
         
-        rel_w = rel_mod * np.cos(rotate_phase/2)
-        rel_x = rel_mod * np.sin(rotate_phase/2) * np.sin(theta) * np.cos(phi)
-        rel_y = rel_mod * np.sin(rotate_phase/2) * np.sin(theta) * np.sin(phi)
-        rel_z = rel_mod * np.sin(rotate_phase/2) * np.cos(theta)
+        rel_w = np.random.uniform(low=-s, high=s, size=kernel_shape)
+        rel_x = np.random.uniform(low=-s, high=s, size=kernel_shape)
+        rel_y = np.random.uniform(low=-s, high=s, size=kernel_shape)
+        rel_z = np.random.uniform(low=-s, high=s, size=kernel_shape)
 
         return rel_w, rel_x, rel_y, rel_z
-
+    
     def entity_init(self, n_entries, features, criterion='he'):
         fan_in = features
         fan_out = features

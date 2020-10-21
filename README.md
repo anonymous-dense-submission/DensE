@@ -17,20 +17,20 @@ pip install -r requirements.txt
 To train the model(s) in the paper, run this command:
 
 ```train
-wn18: bash run_DensE.sh train DensE wn18 <gpu-id> <dir> 512 1024 200 12.0 0.3 0.1 20000 8 0 -me -mr -adv
-wn18rr: bash run_DensE.sh train DensE wn18rr <gpu-id> <dir> 512 512 300 6.0 0.5 0.1 25000 8 0 -me -mr -adv
-FB15k-237: bash run_DensE.sh train DensE FB15k-237 <gpu-id> <dir> 1024 256 800 9.0 1.0 0.1 30000 16 0 -me -mr -adv 
-YAGO3-10: bash run_DensE.sh train DensE YAGO3-10 <gpu-id> <dir> 1024 512 200 24.0 1.0 0.1 33000 16 0 -me -mr -adv
+wn18: bash run_DensE.sh train DensE wn18 <gpu-id> <dir> 512 1024 200 12.0 0.3 0.1 80000 8 0 -me -mr -adv
+wn18rr: bash run_DensE.sh train DensE wn18rr <gpu-id> <dir> 512 512 300 6.0 0.5 0.1 80000 8 0 -me -mr -adv
+FB15k-237: bash run_DensE.sh train DensE FB15k-237 <gpu-id> <dir> 1024 256 800 9.0 1.0 0.1 80000 16 0 -me -mr -adv 
+YAGO3-10: bash run_DensE.sh train DensE YAGO3-10 <gpu-id> <dir> 1024 512 150 24.0 1.0 0.1 100000 16 0 -me -mr -adv
 ```
 ## Evaluation
 
 To evaluate my models, run:
 
 ```eval
-wn18: bash run_DensE.sh test DensE wn18 <gpu-id> <dir> 512 1024 200 12.0 0.3 0.1 20000 8 0 -me -mr -adv
-wn18rr: bash run_DensE.sh test DensE wn18rr <gpu-id> <dir> 512 512 300 6.0 0.5 0.1 25000 8 0 -me -mr -adv
-FB15k-237: bash run_DensE.sh test DensE FB15k-237 <gpu-id> <dir> 1024 256 800 9.0 1.0 0.1 30000 16 0 -me -mr -adv
-YAGO3-10: bash run_DensE.sh test DensE YAGO3-10 <gpu-id> <dir> 1024 512 200 24.0 1.0 0.1 33000 16 0 -me -mr -adv
+wn18: bash run_DensE.sh test DensE wn18 <gpu-id> <dir> 512 1024 200 12.0 0.3 0.1 80000 8 0 -me -mr -adv
+wn18rr: bash run_DensE.sh test DensE wn18rr <gpu-id> <dir> 512 512 300 6.0 0.5 0.1 80000 8 0 -me -mr -adv
+FB15k-237: bash run_DensE.sh test DensE FB15k-237 <gpu-id> <dir> 1024 256 800 9.0 1.0 0.1 80000 16 0 -me -mr -adv
+YAGO3-10: bash run_DensE.sh test DensE YAGO3-10 <gpu-id> <dir> 1024 512 150 24.0 1.0 0.1 100000 16 0 -me -mr -adv
 ```
 
 
@@ -69,7 +69,7 @@ YAGO3-10
 | Model name | MR | MRR | H@1 | H@3 | H@10|
 | ---------- |----|-----|-----|-----|-----|
 |  RotatE    |1767|0.495|0.402|0.550|0.670|
-|   DensE    |1450|0.541|0.465|0.585|0.678|
+|   DensE    |1450|0.542|0.468|0.585|0.678|
 
 ## Contributing
 
